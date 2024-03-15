@@ -15,4 +15,8 @@ export class AuthService {
 
     return null;
   }
+
+  async createUser(username: string, pass: string): Promise<any> {
+    return await this.usersService.create(username, pass);
+  }
 }
