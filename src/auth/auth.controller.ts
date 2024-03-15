@@ -9,6 +9,7 @@ import {
 import { LocalAuthGuard } from './local-auth.guard';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
+import { UserStorage } from 'src/shared/user.storage';
 
 @Controller('auth')
 export class AuthController {
@@ -31,6 +32,6 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @Get('current')
   async current(@Request() req): Promise<any> {
-    return req.user;
+    return UserStorage.get();
   }
 }
