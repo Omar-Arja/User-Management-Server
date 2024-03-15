@@ -14,9 +14,9 @@ export class AuthController {
 
   @Post('register')
   async register(
-    @Body() body: { username: string; pass: string },
+    @Body() body: { username: string; password: string },
   ): Promise<any> {
-    const { username, pass } = body;
-    return this.authService.createUser(username, pass);
+    const { username, password } = body;
+    return this.authService.createUser(username, password);
   }
 }
