@@ -8,6 +8,7 @@ import { User } from 'src/users/entities/user.entity';
 import { UsersService } from 'src/users/users.service';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
+import { SharedContextService } from 'src/shared/shared-context.service';
 
 @Module({
   imports: [
@@ -18,7 +19,13 @@ import { JwtStrategy } from './jwt.strategy';
     }),
     PassportModule,
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy, UsersService],
+  providers: [
+    AuthService,
+    LocalStrategy,
+    JwtStrategy,
+    UsersService,
+    SharedContextService,
+  ],
   controllers: [AuthController],
 })
 export class AuthModule {}
